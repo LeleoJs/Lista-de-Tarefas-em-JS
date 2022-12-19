@@ -7,13 +7,15 @@ let lista = [];
 
 //Salvando no local storange
 if (localStorage.getItem("listaTarefas") == null) {
-    localStorage.setItem("listaTarefas", );
+    localStorage.setItem("listaTarefas", "null");
 }
 else {
     localStorage.getItem("listaTarefas").split(",").forEach((valor) => {
-        let item = createNewItem(valor);
-        checkboxListener(item);
-        listaTarefas.appendChild(item);
+        if (valor != "null") { //Gambiarra para impedir que crie uma label vazia ou nesse caso "null"
+            let item = createNewItem(valor);
+            checkboxListener(item);
+            listaTarefas.appendChild(item);
+        }
     })
     nomeTarefas.value = '';
     nomeTarefas.focus();
@@ -33,9 +35,8 @@ function addTarefa() {
     let item = createNewItem(nomeTarefas.value);
     checkboxListener(item);
     listaTarefas.appendChild(item);
-
-    localStorage.setItem("listaTarefas", localStorage.getItem("listaTarefas")+","+nomeTarefas.value);
-
+    //Adicionar ao localstorange
+    localStorage.setItem("listaTarefas", localStorage.getItem("listaTarefas") + "," + nomeTarefas.value);
     nomeTarefas.value = '';
     nomeTarefas.focus();
 }
@@ -43,6 +44,9 @@ function addTarefa() {
 function removeTarefa(item) {
     checkboxListener(item, true);
     item.remove()
+    //Remover do localstorange
+    let indexItemRemovido = localStorage.getItem("listaTarefas").split(",").indexOf(item.children[1].innerText)
+    localStorage.setItem("listaTarefas", localStorage.getItem("listaTarefas").split(",").slice(indexItemRemovido).join(","));
 }
 
 function createNewItem(name) {
@@ -82,9 +86,10 @@ function checkboxListener(item, remove = false) {
         input.addEventListener('change', function () {
             if (this.checked) {
                 console.log("Checkbox is checked..");
-                //Adicionar evento para riscar o item
+                console.log(item.children[1].style.textDecoration="line-through");
             } else {
                 console.log("Checkbox is not checked..");
+                console.log(item.children[1].style.textDecoration="");
             }
         });
     }
