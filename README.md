@@ -3,7 +3,7 @@
 ### Autor: Leonardo José
 ---
 
-A página consiste em uma lsta de tarefas para o usuário cadastrar novas tarefas, marca-las e exclui-las, salvando os dados no localstorange do navegador.
+A página consiste em uma aplicação de listagem de tarefas para o usuário cadastrar suas tarefas, marca-las e exclui-las, salvando os dados no localstorange do navegador.
 Trabalho foi desenvolvido utilizando HTML, CSS e JavaScript, também foi utilizado o framework
  Bootstrap para auxiliar no designe da página.
  
