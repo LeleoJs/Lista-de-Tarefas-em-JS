@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Adicionando CSS e Javascript pessoal -->
+  <link rel="stylesheet" type="text/css" href="./main.css" />
+
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+  <!-- Adicionando o Bootstrap Jquery e Js do Bootstrap
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+  <!-- Adicionando as fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Adicionando ícones Bootstrap -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css"
+    integrity="sha512-YFENbnqHbCRmJt5d+9lHimyEMt8LKSNTMLSaHjvsclnZGICeY/0KYEeiHwD1Ux4Tcao0h60tdcMv+0GljvWyHg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Lista de Compras</title>
+
+</head>
+
+<body>
+
+  <!--Header da página-->
+  <header class="container-fluid p-0 text-center">
+    <h1 class="cabecalho p-4 m-0">Minha lista de <span style="color: #E07400;">Tarefas</span></h1>
+  </header>
+  <!--Fim do Header-->
+
+  <!--Conteúdo da página-->
+  <div class="container-fluid texto-padrao tema_estilizado p-lg-5">
+    <div class="row pb-3">
+      <div class="col-sm-4 text-center">
+        <h3>Adicionar Nova Tarefa</h3>
+      </div>
+      <div class="col-sm-8 text-center">
+        <h3>Tarefas</h3>
+      </div>
+    </div>
+    <div class="row">
+      <section class="col-sm-4">
+          <div class="row p-4">
+            <input type="text" id="produtoAdd-nome">
+          </div>
+        <div class="text-lg-end pe-3">
+          <button type="button" class="btn btn-default" style="color: black; background-color: #E07400;"
+            id="btn-AddProduto">Adicionar</button>
+        </div>
+      </section>
+      <aside class="col-sm-8 text-center align-self-center aside-content">
+        <div class="">
+          <ul class="list-unstyled" id="lista-produtos"></ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <!--Fim do Conteúdo da página-->
+
+  <!--Footer da página-->
+  <div class="page-footer text-center align-self-center pt-3 pb-2">
+    <p class="fs-5">By: Leonardo José <span class="fs-3"><i class="bi bi-check2-circle"></i></span></p>
+  </div>
+  <!--Fim do Footer da página-->
+
+  <!-- Script do Js -->
+  <script src="./js/script.js" type="text/javascript"></script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
