@@ -1,42 +1,30 @@
-// ID da ul da lista de produtos -> lista-produtos
-// ID do input do nome do produto -> produtoAdd-nome
-// ID do input do preço do produto -> produtoAdd-preco
-// ID do botão de adicionar o novo produto -> btn-AddProduto
-
 
 //Declaração de variáveis
-let listaProdutos = document.querySelector('#lista-produtos');
-let nomeProduto = document.querySelector('#produtoAdd-nome');
-// let precoProduto = document.querySelector('#produtoAdd-preco');
-let btnAddProduto = document.querySelector('#btn-AddProduto');
-
+let listaTarefas = document.querySelector('#lista-tarefas');
+let nomeTarefas = document.querySelector('#tarefaAdd-nome');
+let btnAddTarefa = document.querySelector('#btn-AddTarefa');
 let lista = [];
 
-//Espera para adição de novos produtos
-btnAddProduto.addEventListener('click', addProduto);
+//Espera para adição de novas tarefas
+btnAddTarefa.addEventListener('click', addTarefa);
 
-nomeProduto.addEventListener('keyup', function (e) {
+nomeTarefas.addEventListener('keyup', function (e) {
     if (e.keyCode === 13) {
-        addProduto()
+        addTarefa()
     }
 })
 
-//Espera para adicionar valor do produto
-if (lista.length = !0) {
-
-}
-
 //Funções internas
-function addProduto() {
-    let item = createNewItem(nomeProduto.value);
+function addTarefa() {
+    let item = createNewItem(nomeTarefas.value);
     checkboxListener(item);
-    listaProdutos.appendChild(item);
-    nomeProduto.value = '';
-    nomeProduto.focus();
+    listaTarefas.appendChild(item);
+    nomeTarefas.value = '';
+    nomeTarefas.focus();
 
 }
 
-function removeProduto(item) {
+function removeTarefa(item) {
     checkboxListener(item,true);
     item.remove()
 }
@@ -54,7 +42,7 @@ function createNewItem(name) {
     let button = document.createElement("button");
     button.classList.add("btn", "btn-outline-danger", "col-1");
     button.innerHTML = "X";
-    button.setAttribute("onclick", "removeProduto(this.parentElement,true)");
+    button.setAttribute("onclick", "removeTarefa(this.parentElement,true)");
 
     let label = document.createElement("label");
     label.classList.add("col-10", "text-start");
@@ -78,6 +66,7 @@ function checkboxListener(item, remove = false) {
         input.addEventListener('change', function () {
             if (this.checked) {
                 console.log("Checkbox is checked..");
+
             } else {
                 console.log("Checkbox is not checked..");
             }
