@@ -5,6 +5,20 @@ let nomeTarefas = document.querySelector('#tarefaAdd-nome');
 let btnAddTarefa = document.querySelector('#btn-AddTarefa');
 let lista = [];
 
+//Salvando no local storange
+if (localStorage.getItem("listaTarefas") == null) {
+    localStorage.setItem("listaTarefas", );
+}
+else {
+    localStorage.getItem("listaTarefas").split(",").forEach((valor) => {
+        let item = createNewItem(valor);
+        checkboxListener(item);
+        listaTarefas.appendChild(item);
+    })
+    nomeTarefas.value = '';
+    nomeTarefas.focus();
+}
+
 //Espera para adição de novas tarefas
 btnAddTarefa.addEventListener('click', addTarefa);
 
@@ -19,19 +33,21 @@ function addTarefa() {
     let item = createNewItem(nomeTarefas.value);
     checkboxListener(item);
     listaTarefas.appendChild(item);
+
+    localStorage.setItem("listaTarefas", localStorage.getItem("listaTarefas")+","+nomeTarefas.value);
+
     nomeTarefas.value = '';
     nomeTarefas.focus();
-
 }
 
 function removeTarefa(item) {
-    checkboxListener(item,true);
+    checkboxListener(item, true);
     item.remove()
 }
 
 function createNewItem(name) {
     let li = document.createElement("li");;
-    li.classList.add("row", "px-5", "pb-1");
+    li.classList.add("row", "py-2", "px-5", "li_background", "my-1");
 
     let input = document.createElement("input");
     input.classList.add("col-1");
@@ -45,7 +61,7 @@ function createNewItem(name) {
     button.setAttribute("onclick", "removeTarefa(this.parentElement,true)");
 
     let label = document.createElement("label");
-    label.classList.add("col-10", "text-start");
+    label.classList.add("col-10", "text-start", "align-self-center");
     label.innerHTML = name;
     label.setAttribute("for", name);
 
@@ -56,7 +72,7 @@ function createNewItem(name) {
 }
 
 function checkboxListener(item, remove = false) {
-    let input=item.getElementsByTagName("input")[0];
+    let input = item.getElementsByTagName("input")[0];
     if (remove) {
         console.log("Event removed");
         input.removeEventListener('change', function () {
@@ -66,7 +82,7 @@ function checkboxListener(item, remove = false) {
         input.addEventListener('change', function () {
             if (this.checked) {
                 console.log("Checkbox is checked..");
-
+                //Adicionar evento para riscar o item
             } else {
                 console.log("Checkbox is not checked..");
             }

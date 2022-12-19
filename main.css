@@ -21,6 +21,11 @@
     color: rgb(31, 31, 31);
 }
 
+.li_background{
+    background-color: #e07400a3;
+    border-radius: 30px;
+}
+
 /* footer */
 .page-footer {
     background-color: rgb(120, 120, 120);
