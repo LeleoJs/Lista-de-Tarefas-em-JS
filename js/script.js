@@ -45,8 +45,7 @@ function removeTarefa(item) {
     checkboxListener(item, true);
     item.remove()
     //Remover do localstorange
-    let indexItemRemovido = localStorage.getItem("listaTarefas").split(",").indexOf(item.children[1].innerText)
-    localStorage.setItem("listaTarefas", localStorage.getItem("listaTarefas").split(",").slice(indexItemRemovido).join(","));
+    localStorage.setItem("listaTarefas", localStorage.getItem("listaTarefas").replace(","+item.children[1].innerText,""));
 }
 
 function createNewItem(name) {
